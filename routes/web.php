@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TimeTrackerSettingController;
+use App\Http\Controllers\Admin\EmployeesController;
+
 use App\Http\Controllers\TimeTrackerController;
 use App\Http\Controllers\HomeController;
 /*
@@ -28,4 +31,5 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('time_tracker_settings', TimeTrackerSettingController::class);
     Route::resource('time_tracker', TimeTrackerController::class);
+    Route::resource('employees', EmployeesController::class);
 });

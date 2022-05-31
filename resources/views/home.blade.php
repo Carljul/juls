@@ -42,6 +42,14 @@
                             </div>
                         </div>
                     </a>
+
+                    <a href="{{route('employees.index')}}" class="card-menu">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>Employees</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
