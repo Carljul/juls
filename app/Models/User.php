@@ -56,4 +56,8 @@ class User extends Authenticatable
     public function person() {
         return $this->hasOne(Persons::class, 'id', 'person_id');
     }
+
+    public function employee() {
+        return $this->belongsTo(Admin\Employees::class, 'id', 'user_id');
+    }
 }

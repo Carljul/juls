@@ -14,10 +14,10 @@ return [
     ],
     'employee_shift' => [
         'index' => [
-            1 => 'Morning', // 8AM - 5PM
-            2 => 'Afternoon', // 1PM - 9PM
-            3 => 'Night', // 6PM - 3AM
-            4 => 'Graveyard', // 3AM - 12PM
+            1 => 'Morning',
+            2 => 'Afternoon',
+            3 => 'Night',
+            4 => 'Graveyard',
             5 => 'Flex'
         ],
         'values' => [

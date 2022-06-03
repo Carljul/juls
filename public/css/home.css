@@ -1,0 +1,11 @@
+a.card-menu {
+    text-decoration: none;
+    float: left;
+    margin: 0 5px;
+}
+a.card-menu .card {
+    width: 100%;
+}
+a.card-menu p {
+    margin-bottom: 0;
+}

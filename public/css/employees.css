@@ -1,0 +1,18 @@
+#users.hide{
+    display: none;
+}
+
+#employees.hide{
+    display: none;
+}
+
+#users p,
+#employees p{
+    margin-bottom: 0;
+}
+
+#employees .action-buttons {
+    text-align: center;
+    position: relative;
+    top: 35px;
+}

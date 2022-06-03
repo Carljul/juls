@@ -32,4 +32,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::resource('time_tracker_settings', TimeTrackerSettingController::class);
     Route::resource('time_tracker', TimeTrackerController::class);
     Route::resource('employees', EmployeesController::class);
+    Route::name('not-employeed')->get('/not-employeed', function() {
+        return view('pages.not-employeed');
+    });
 });

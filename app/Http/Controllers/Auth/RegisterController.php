@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'firstname'  => ['required', 'string', 'max:255'],
             'middlename' => ['string', 'max:255', 'nullable'],
             'lastname'   => ['required', 'string', 'max:255'],
-            'mobile_no'  => ['required', 'min:11', 'max:13'],
+            'mobile_no'  => ['required', 'min:11', 'max:13', 'unique:users'],
             'birthdate'  => ['required', 'before:17 years ago'],
             'gender'     => ['required'],
             'username'   => ['required', 'string', 'max:255', 'unique:users'],
@@ -101,7 +101,11 @@ class RegisterController extends Controller
 
             return $user;
         } catch(Exception $e) {
-            \Log::error($e);
+            \Log::error($e->getMessage());
+            
+            DB::rollback();
+
+            return redirect()->back()->withErrors('errors', $e->getMessage());
         }
     }
 }

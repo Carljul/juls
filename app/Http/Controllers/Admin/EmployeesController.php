@@ -22,10 +22,12 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        $users = User::with('person')->get();
         $employees = Employees::with(['user' => function($query){
             return $query->with('person');
         }])->get();
+
+        $users = User::whereNotIn('id', $employees->pluck('user')->pluck('id')->toArray())
+            ->with('person')->get();
 
         return view('admin.employees.index', compact('users', 'employees'));
     }

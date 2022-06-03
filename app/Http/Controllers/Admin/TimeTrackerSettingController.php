@@ -63,10 +63,11 @@ class TimeTrackerSettingController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->back();
+            return redirect()->back()->withErrors(['error' => false, 'message' => 'Saved']);
         } catch(Exception $e) {
             \Log::error($e);
             DB::rollback();
+            return redirect()->back()->withErrors(['error' => true, 'message' => 'Something Went Wrong!']);
         }
     }
 
@@ -122,10 +123,13 @@ class TimeTrackerSettingController extends Controller
             $time_tracker_setting->save();
 
             DB::commit();
-            return redirect()->back();
+            return redirect()->back()->withErrors(['error' => false, 'message' => 'Updated']);
         } catch(Exception $e) {
             \Log::error($e);
+
             DB::rollback();
+
+            return redirect()->back()->withErrors(['error' => true, 'message' => 'Something Went Wrong!']);
         }
     }
 

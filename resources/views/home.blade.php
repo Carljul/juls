@@ -1,19 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    a.card-menu {
-        text-decoration: none;
-        float: left;
-        margin: 0 5px;
-    }
-    a.card-menu .card {
-        width: 100%;
-    }
-    a.card-menu p {
-        margin-bottom: 0;
-    }
-</style>
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

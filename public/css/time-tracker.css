@@ -1,0 +1,20 @@
+#time-tracker {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    width: 100%;
+}
+#time-tracker th, #time-tracker td {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 15px 10px;
+}
+#time-tracker th {
+    border-left: 1px solid rgba(0, 0, 0, 0.125);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#time-tracker td:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

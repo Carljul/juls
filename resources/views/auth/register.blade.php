@@ -130,7 +130,7 @@
                             <label for="pin_code" class="col-md-4 col-form-label text-md-end">{{ __('Create your 6 digit PIN Code') }}</label>
 
                             <div class="col-md-6">
-                                <input id="pin_code" type="password" placeholder="PIN Code helps you for easy login" class="form-control @error('pin_code') is-invalid @enderror" name="pin_code" required autocomplete="pin_code">
+                                <input id="pin_code" type="password" placeholder="PIN Code helps you for easy login" maxlength="6" minlength="6" class="form-control @error('pin_code') is-invalid @enderror" name="pin_code" required autocomplete="pin_code">
 
                                 @error('pin_code')
                                     <span class="invalid-feedback" role="alert">
