@@ -3,9 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Employees;
+
+use DB;
+use Exception;
+
 use App\Models\User;
+use App\Models\Admin\Employees;
+
 use Illuminate\Http\Request;
+use App\Http\Requests\EmployeeRequest;
 
 class EmployeesController extends Controller
 {
@@ -37,12 +43,34 @@ class EmployeesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Http\EmployeeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        //
+        $params = $request->all();
+
+        DB::beginTransaction();
+
+        try {
+            $employees = Employees::all()->count();
+
+            Employees::create([
+                'user_id'     => $params['user_id'],
+                'employee_no' => date('y').'-'.($employees+1),
+                'shift'       => $params['shift']
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->withErrors(['errors' => false, 'message' => 'Success']);
+        } catch(Exception $e) {
+            \Log::error($e);
+
+            DB::rollback();
+
+            return redirect()->back()->withErrors(['errors' => true, 'message' => 'Something went wrong']);
+        }
     }
 
     /**
